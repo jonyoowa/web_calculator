@@ -16,8 +16,14 @@ body {
 }
 
 @font-face {
-	font-family: digital-7;
-	src: url("./digital-7.ttf");
+    font-family: 'digital-7';
+    src: url('./Digital-7.eot');
+    src:  url('./Digital-7.eot?#iefix') format('embedded-opentype'),
+         url('./Digital-7.svg') format('svg'),
+         url('./Digital-7.woff') format('woff'),
+         url('./Digital-7.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 #contentWrapper {
@@ -51,7 +57,8 @@ body {
 	padding: 5px;
 
 	box-shadow: 2px 2px 30px #20c1cc, 4px 4px 35px #8307ff, 8px 8px 40px #39e586,
-				-1px -1px 30px #CC4E20, -2px -2px 35px #FFC107, -3px -3px 40px #E54C39;
+				-1px -1px 30px #CC4E20, -2px -2px 35px #FFC107, -3px -3px 40px #E54C39,
+				inset -2px -2px 8px #370F83, inset 2px 2px 8px #370F83;
 
 }
 
@@ -68,21 +75,27 @@ body {
 	background-color: #D9D9D9;
 	text-align: right;
 	border: 3px solid #C4A6FF;
+
+	box-shadow: 4px 4px #370F83;
 }
 
 #calcDisplay > * {
 	position: absolute;
-	line-height: normal;
+	line-height: 1.2;
+	margin: 0 10px;
+	padding: 0;
 }
 
 #operationDisplay {
-	right: 10px;
-	top: 5px;
+	right: 20px;
+	top: 0;
+	font-family: digital-7;
+	font-size: 36px;
 }
 
 #mainDisplay {
-	right: 5px;
-	bottom: 20px;
+	right: 10px;
+	bottom: 10px;
 	font-family: digital-7;
 	font-size: 48px;
 }
@@ -102,6 +115,8 @@ body {
 
 	background-color: #3F1A57;
 	border-radius: 30px 30px 0 0;
+
+	box-shadow: 2px 0 #370F83;
 }
 
 #buttonContainer {
@@ -116,9 +131,10 @@ body {
 	background-color: #3F1A57;
 	border-radius: 30px 0 30px 30px;
 
+	box-shadow: 2px 2px #370F83;
 }
 
-.calcButton {
+.calcButton, .numButton {
 	height: 80px;
 	width: 110px;
 	font: bold 1.6em "Roboto", sans-serif;
@@ -132,18 +148,19 @@ body {
 
 }
 
-.calcButton, .calcButton:active, .calcButton:focus, .calcButton:hover{
+.calcButton, .calcButton:active, .calcButton:focus, .calcButton:hover, .numButton, .numButton:active, .numButton:focus, .numButton:hover {
 	outline: none !important;
 }
 
-.calcButton:active {
+
+.calcButton:active, .numButton:active {
 	transition-duration: 0.075s;;
 	transform: translate(2px, 2px);
 	transition-timing-function: ease-out;
 	box-shadow: inset -2px -2px 8px #EDFF18, -4px -4px 8px #F0FF43;
 }
 
-#divide, #times, #minus, #plus {
+#divide, #multiply, #subtract, #add {
 	border: 3px solid #D9D9D9;
 	background-color: #444444;
 	color: #FFF;
